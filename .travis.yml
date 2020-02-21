@@ -1,30 +1,18 @@
+sudo: false
 language: node_js
-node_js: stable
-
-# S: Build Lifecycle
-install:
-  - npm install
-
-
-  #before_script:
-  # - npm install -g gulp
-
+node_js:
+  - stable
+cache: node_modules
+branches:
+  only:
+    - dev # build dev branch only
 script:
-  - hexo g
-
+  - hexo g # generate static files
 after_script:
   - cd ./public
   - git init
-  - git config user.name "leefier"
-  - git config user.email "1011128205@qq.com"
+  - git config user.name "yefour"
+  - git config user.email "1811128205@qq.com"
   - git add .
-  - git commit -m "Update blogs"
-  - git push --force "https://${GH_TOKEN}@${GH_REF}" master:master
-# E: Build LifeCycle
-
-branches:
-  only:
-    - dev
-env:
-  global:
-    - GH_REF: github.com/yefour/yefour.github.io.git
+  - git commit -m "Update docs"
+  - git push --force "https://${GH_TOKEN}@github.com/yefour/yefour.github.io.git" master:master
