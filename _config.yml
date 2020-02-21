@@ -98,4 +98,7 @@ theme: Acetolog
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: git
+  repo:
+    github: https://github.com/yefour/yefour.github.io
+  branch: master
